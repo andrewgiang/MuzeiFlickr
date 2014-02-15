@@ -43,7 +43,7 @@ public class FlickrArtSource extends RemoteMuzeiArtSource {
 
         final Artwork.Builder builder = new Artwork.Builder();
         mRequestQueue.add(new GsonRequest<PhotoResponse>(
-                "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=364bd9cc13d7c6cee57efdd98365daf6&group_id=40961104@N00&format=json&nojsoncallback=1",
+                "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+Config.API_KEY+"&group_id=40961104@N00&format=json&nojsoncallback=1",
                 PhotoResponse.class, null, new Response.Listener<PhotoResponse>() {
             @Override
             public void onResponse(PhotoResponse request) {
@@ -73,7 +73,7 @@ public class FlickrArtSource extends RemoteMuzeiArtSource {
                                     Uri.parse(url)));
                     Log.w(TAG, url);
                     final String[] user = {"Unkown"};
-                    String personUrl = "http://api.flickr.com/services/rest/?method=flickr.people.getInfo&api_key=364bd9cc13d7c6cee57efdd98365daf6&user_id=" + photo.owner + "&format=json&nojsoncallback=1";
+                    String personUrl = "http://api.flickr.com/services/rest/?method=flickr.people.getInfo&api_key="+Config.API_KEY+"&user_id=" + photo.owner + "&format=json&nojsoncallback=1";
                     mRequestQueue.add(new GsonRequest<PersonResponse>(personUrl, PersonResponse.class, null, new Response.Listener<PersonResponse>() {
                         @Override
                         public void onResponse(PersonResponse personResponse) {
