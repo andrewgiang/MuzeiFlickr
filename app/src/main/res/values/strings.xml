@@ -7,6 +7,6 @@
     <string name="action_settings">Settings</string>
     <string name="source_description">Photos from flickr</string>
     <string name="source_label">Flickr Photos</string>
-
+    <string name="title_activity_config">MuzeiFlickr Configuration</string>
 
 </resources>
